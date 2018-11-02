@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+	<session-factory name="sessionFactory">
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/appanalytics</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="connection.autocommit">true</property>
+		<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
+
+
+		<!-- START - Connection Pool Configuration -->
+		<property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">100</property>
+		<property name="hibernate.c3p0.timeout">300</property>
+		<property name="hibernate.c3p0.max_statements">50</property>
+		<property name="hibernate.c3p0.idle_test_period">3000</property>
+		<!-- END - Connection Pool Configuration START - Mapping Classes -->
+
+
+		<!-- Hibernate Entity class mapping -->
+		<mapping class="com.AppAnalytics.models.TblDimAndMet" />
+		<mapping class="com.AppAnalytics.models.TblMetrics" />
+		<mapping class="com.AppAnalytics.models.TblMail" />
+		<mapping class="com.AppAnalytics.models.TblOauthAccessTokens" />
+		<mapping class="com.AppAnalytics.models.TblUserCredentials" />
+		<mapping class="com.AppAnalytics.models.TblUserProfile" />
+
+
+
+
+		<!-- END - Mapping Classes -->
+
+	</session-factory>
+
+</hibernate-configuration>
